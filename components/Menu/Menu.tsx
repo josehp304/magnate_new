@@ -324,30 +324,11 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
     return (
         <>
             <div className="nav-container">
-                <div className="nav" ref={navRef}>
-                    <div className="nav-logo">
-                        <div className="revealer">
-                            <a
-                                href="/"
-                                ref={navLogoRef}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    if (isExactPath("/")) return;
 
-                                    router.push("/", {
-                                        onTransitionReady: slideInOut,
-                                    });
-                                }}
-                            >
-                                <img
-                                    className="logo-img"
-                                    src="/logo.svg"
-                                    alt=""
-                                />
-                            </a>
-                        </div>
-                    </div>
+                <div className="nav" ref={navRef}>
+                    <div className="dummy"></div>
                     <div className="nav-items">
+
                         <div className="nav-menu-time">
                             <div className="revealer">
                                 <p className="sm caps mono">{currentTime}</p>
@@ -362,6 +343,29 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                             </div>
                         </div>
                     </div>
+                </div>
+
+            </div>
+            <div className="nav-logo">
+                <div className="revealer">
+                    <a
+                        href="/"
+                        ref={navLogoRef}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            if (isExactPath("/")) return;
+
+                            router.push("/", {
+                                onTransitionReady: slideInOut,
+                            });
+                        }}
+                    >
+                        <img
+                            className="logo-img"
+                            src="/logo.svg"
+                            alt=""
+                        />
+                    </a>
                 </div>
             </div>
             <div className="menu" ref={menuRef}>

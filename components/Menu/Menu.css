@@ -28,6 +28,7 @@
     z-index: 1000;
     mix-blend-mode: difference;
     pointer-events: none;
+
 }
 
 .nav {
@@ -53,12 +54,22 @@
 
 .nav-logo {
     flex: 2;
+    position: fixed;
+
+    top: 7;
+    left: 10;
+    z-index: 1000;
+}
+
+.dummy {
+    width: 10rem;
 }
 
 .nav-items {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    /* mix-blend-mode: difference; */
 }
 
 .nav-menu-toggle-open,
@@ -78,6 +89,7 @@
 
 img.logo-img {
     width: 2rem;
+    /* mix-blend-mode: normal; */
 }
 
 .menu-overlay {
@@ -162,6 +174,7 @@ img.logo-img {
     position: relative;
     width: max-content;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
 }
 
 @media (max-width: 1000px) {
