@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import "./home.css";
 
-import DynamicBackground from "../components/DynamicBackground/DynamicBackground";
 import Copy from "../components/Copy/Copy";
 import BtnLink from "../components/BtnLink/BtnLink";
 import WhoWeAre from "../components/WhoWeAre/WhoWeAre";
