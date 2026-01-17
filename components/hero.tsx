@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import Image from "next/image";
+import AnimatedCopy from "@/components/ui/AnimatedCopy";
 
 export default function Hero() {
     return (
@@ -53,14 +54,11 @@ export default function Hero() {
                                 <span className="italic font-serif font-light text-zinc-500 dark:text-zinc-400">Vision.</span>
                             </motion.h1>
 
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.6 }}
-                                className="text-lg text-zinc-600 dark:text-zinc-300 mb-10 max-w-md leading-relaxed"
-                            >
-                                Crafting pathways to elite universities worldwide. We blend architectural precision with educational strategy.
-                            </motion.p>
+                            <AnimatedCopy colorInitial="#666666" colorFinal="#e4e7df" colorAccent="#ffc22a">
+                                <p className="text-lg mb-10 max-w-md leading-relaxed">
+                                    Crafting pathways to elite universities worldwide. We blend architectural precision with educational strategy.
+                                </p>
+                            </AnimatedCopy>
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
