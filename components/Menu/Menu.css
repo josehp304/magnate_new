@@ -174,7 +174,14 @@ img.logo-img {
     position: relative;
     width: max-content;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
 
+.menu-overlay-items h1 {
+    font-size: 7vw;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.1;
+    text-transform: uppercase;
 }
 
 @media (max-width: 1000px) {
@@ -185,6 +192,10 @@ img.logo-img {
     .menu-overlay-items {
         flex-direction: column;
         padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+
+    .menu-overlay-items h1 {
+        font-size: 3rem;
     }
 
     .socials {

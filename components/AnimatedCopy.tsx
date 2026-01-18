@@ -91,7 +91,7 @@ export default function AnimatedCopy({
             ScrollTrigger.create({
                 trigger: containerRef.current,
                 start: "top 90%",
-                end: "top 10%",
+                end: "top 20%",
                 scrub: 1,
                 onUpdate: (self) => {
                     // Logic to compare self.progress with lastScrollProgress

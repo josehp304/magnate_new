@@ -116,19 +116,21 @@ const Preloader = () => {
                 duration: 1,
                 ease: "hop",
             })
+            .call(() => {
+                setIsPreloaderComplete(true);
+            })
             .to(
-                ".preloader-hero-header h1 .word",
+                ".preloader-scroll-down img",
                 {
-                    y: "-20px",
+                    y: "0px",
+                    opacity: 1,
                     duration: 0.75,
                     stagger: 0.1,
                     ease: "power3.out",
                 },
                 "-=0.5"
             )
-            .call(() => {
-                setIsPreloaderComplete(true);
-            });
+
 
     }, { scope: containerRef });
 
@@ -175,16 +177,11 @@ const Preloader = () => {
                 </div>
 
                 <div className="preloader-hero-header">
-                    <BlockCopy animateOnScroll={false} triggerStart={isPreloaderComplete}><h1>we are magnate</h1></BlockCopy>
-                    {/* <h1>
-                        <span className="word">M</span>
-                        <span className="word">A</span>
-                        <span className="word">G</span>
-                        <span className="word">N</span>
-                        <span className="word">A</span>
-                        <span className="word">T</span>
-                        <span className="word">E</span>
-                    </h1> */}
+                    <BlockCopy animateOnScroll={false} triggerStart={isPreloaderComplete} blockColor="#db952dff"><h1>The World Is Your Campus</h1></BlockCopy>
+                </div>
+
+                <div className="preloader-scroll-down">
+                    <img src="/icons/scroll.svg" alt="Scroll Down" />
                 </div>
             </section>
         </div>

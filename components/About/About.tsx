@@ -59,15 +59,15 @@ const About = () => {
 
             <div className="about-quote">
                 <h2>
-                    {/* <AnimatedCopy colorInitial="#808080" colorAccent="#9c8c5cff" colorFinal="#000000">
+                    <AnimatedCopy colorInitial="#808080" colorAccent="#9c8c5cff" colorFinal="#000000">
                         {quote}
-                    </AnimatedCopy> */}
-                    <BlockCopy>
+                    </AnimatedCopy>
+                    {/* <BlockCopy>
                         <p>
                             {quote}
 
                         </p>
-                    </BlockCopy>
+                    </BlockCopy> */}
                 </h2>
             </div>
 
@@ -81,7 +81,7 @@ const About = () => {
                     <path d="M40,50 C40,50 50,20 70,30 C90,40 60,60 50,55 C40,50 90,30 110,40 C130,50 120,60 120,60 M130,30 L130,70" />
                 </svg>
                 <div className="about-signature-name">
-                    <p>RENEE OGAKI</p>
+                    <p>Ashwin Pradeep</p>
                     <p>FOUNDER & CEO</p>
                 </div>
             </div>
