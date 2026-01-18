@@ -59,7 +59,7 @@ const About = () => {
 
             <div className="about-quote">
                 <h2>
-                    <AnimatedCopy colorInitial="#808080" colorAccent="#9c8c5cff" colorFinal="#000000">
+                    <AnimatedCopy colorInitial="#7f5515ff" colorAccent="#dbb22bff" colorFinal="#000000">
                         {quote}
                     </AnimatedCopy>
                     {/* <BlockCopy>

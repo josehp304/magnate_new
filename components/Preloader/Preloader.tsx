@@ -169,11 +169,11 @@ const Preloader = () => {
 
                 <div className="preloader-hero-images">
                     {/* Using Public Images */}
-                    <div className="preloader-img img"><img src="/images/who-we-are/team-1.jpg" alt="Img 1" /></div>
-                    <div className="preloader-img img"><img src="/images/who-we-are/team-2.jpg" alt="Img 2" /></div>
-                    <div className="preloader-img img preloader-hero-main-img"><img src="/images/who-we-are/team-3.jpg" alt="Hero Img" /></div>
-                    <div className="preloader-img img"><img src="/images/who-we-are/team-4.jpg" alt="Img 4" /></div>
-                    <div className="preloader-img img"><img src="/images/who-we-are/team-5.jpg" alt="Img 5" /></div>
+                    <div className="preloader-img img"><img src="/images/preloader/img-1.jpg" alt="Img 1" /></div>
+                    <div className="preloader-img img"><img src="/images/preloader/img-2.jpg" alt="Img 2" /></div>
+                    <div className="preloader-img img preloader-hero-main-img"><img src="/images/preloader/img-3.jpg" alt="Hero Img" /></div>
+                    <div className="preloader-img img"><img src="/images/preloader/img-4.jpg" alt="Img 4" /></div>
+                    <div className="preloader-img img"><img src="/images/preloader/img-5.jpg" alt="Img 5" /></div>
                 </div>
 
                 <div className="preloader-hero-header">
