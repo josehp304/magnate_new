@@ -1,9 +1,10 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import "./Preloader.css";
+import BlockCopy from "../BlockCopy/BlockCopy";
 
 // Register CustomEase if available, else standard easing will fail gracefully or we fallback
 if (typeof window !== "undefined") {
@@ -17,6 +18,7 @@ if (typeof window !== "undefined") {
 
 const Preloader = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isPreloaderComplete, setIsPreloaderComplete] = useState(false);
 
     useGSAP(() => {
         const scope = containerRef.current;
@@ -103,6 +105,12 @@ const Preloader = () => {
                 duration: 1,
                 ease: "hop",
             })
+            .to(".preloader-hero-main-img", {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+                duration: 1,
+                ease: "hop",
+            }
+            )
             .to(".preloader-hero-overlay", {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
                 duration: 1,
@@ -111,13 +119,16 @@ const Preloader = () => {
             .to(
                 ".preloader-hero-header h1 .word",
                 {
-                    y: "0",
+                    y: "-20px",
                     duration: 0.75,
                     stagger: 0.1,
                     ease: "power3.out",
                 },
                 "-=0.5"
-            );
+            )
+            .call(() => {
+                setIsPreloaderComplete(true);
+            });
 
     }, { scope: containerRef });
 
@@ -164,7 +175,8 @@ const Preloader = () => {
                 </div>
 
                 <div className="preloader-hero-header">
-                    <h1>
+                    <BlockCopy animateOnScroll={false} triggerStart={isPreloaderComplete}><h1>we are magnate</h1></BlockCopy>
+                    {/* <h1>
                         <span className="word">M</span>
                         <span className="word">A</span>
                         <span className="word">G</span>
@@ -172,7 +184,7 @@ const Preloader = () => {
                         <span className="word">A</span>
                         <span className="word">T</span>
                         <span className="word">E</span>
-                    </h1>
+                    </h1> */}
                 </div>
             </section>
         </div>

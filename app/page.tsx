@@ -1,13 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import "./home.css";
-
+import BlockCopy from "@/components/BlockCopy/BlockCopy";
 import Copy from "../components/Copy/Copy";
 import BtnLink from "../components/BtnLink/BtnLink";
 import WhoWeAre from "../components/WhoWeAre/WhoWeAre";
 import Footer from "../components/Footer/Footer";
 import ProcessCards from "../components/ProcessCards/ProcessCards";
-
+import About from "../components/About/About"
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,6 +21,7 @@ try {
 }
 
 import Preloader from "../components/Preloader/Preloader";
+import HoverImageLinks from "@/components/HoverImageLinks/HoverImageLinks";
 
 export default function Home() {
   useGSAP(() => {
@@ -55,7 +56,7 @@ export default function Home() {
         <div className="hero-content">
           <div className="hero-header">
             <div className="hero-header-col-lg"></div>
-            <div className="hero-header-col-sm">
+            <div className="heroLiquid syntax error (line 101): Unknown tag 'schema'-header-col-sm">
               <Copy animateOnScroll={false} delay={0}>
                 <h3>
                   Systems thinking and creative execution brought into web
@@ -92,8 +93,11 @@ export default function Home() {
 
       {/* Kept other sections */}
       <WhoWeAre />
+      <About />
       <ProcessCards />
+      <HoverImageLinks items={[{ label: "Google", img: "/img1.jpg " }, { label: "Netflix", img: "/img2.jpg" }, { label: "Zepto", img: "/img3.jpg" }, { label: "Spotify", img: "/img4.jpg" }]}></HoverImageLinks>
       <Footer />
+
     </>
   );
 }

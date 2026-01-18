@@ -53,6 +53,11 @@ html.lenis {
   overflow: hidden;
 }
 
+
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+.char {
+  transition: color 150ms ease-out;
 }
