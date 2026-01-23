@@ -382,10 +382,13 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     <div className="menu-overlay-items" ref={menuItemsRef}>
                         {[
                             { path: "/", label: "index," },
+                            { path: "/courses", label: "courses," },
                             { path: "/work", label: "work," },
                             { path: "/studio", label: "studio," },
                             { path: "/archive", label: "archive," },
+
                             { path: "/contact", label: "contact" },
+
                         ].map((item) => (
                             <div className="revealer" key={item.path}>
                                 <a
