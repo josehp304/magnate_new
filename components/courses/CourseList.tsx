@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 
 const courses = [
+    { title: "Finance Mastery", color: "#FFD700", link: "/courses/finance" },
     { title: "Montessori TTC", color: "#FFD700" },
     { title: "Full-Stack Web Development", color: "#FFD700" },
     { title: "Quantity Surveying", color: "#FFD700" },
@@ -39,20 +41,31 @@ const CourseList = () => {
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
-                    {courses.map((course, index) => (
-                        <div
-                            key={index}
-                            className="group flex items-center gap-4 bg-[#F5F5F7] p-4 rounded-xl hover:bg-black hover:text-[#D4AF37] transition-all duration-300 cursor-pointer border border-transparent hover:border-[#D4AF37] shadow-sm hover:shadow-xl"
-                        >
-                            {/* Icon Placeholder */}
-                            <div className="w-12 h-12 rounded-lg bg-white group-hover:bg-[#333] flex items-center justify-center flex-shrink-0 transition-colors">
-                                {/* Simple circle/icon representation */}
-                                <div className="w-6 h-6 rounded-full border-2 border-[#D4AF37]"></div>
-                            </div>
+                    {courses.map((course, index) => {
+                        const CardContent = (
+                            <>
+                                {/* Icon Placeholder */}
+                                <div className="w-12 h-12 rounded-lg bg-white group-hover:bg-[#333] flex items-center justify-center flex-shrink-0 transition-colors">
+                                    {/* Simple circle/icon representation */}
+                                    <div className="w-6 h-6 rounded-full border-2 border-[#D4AF37]"></div>
+                                </div>
 
-                            <span className="font-medium text-lg leading-tight">{course.title}</span>
-                        </div>
-                    ))}
+                                <span className="font-medium text-lg leading-tight">{course.title}</span>
+                            </>
+                        );
+
+                        const cardClasses = "group flex items-center gap-4 bg-[#F5F5F7] p-4 rounded-xl hover:bg-black hover:text-[#D4AF37] transition-all duration-300 cursor-pointer border border-transparent hover:border-[#D4AF37] shadow-sm hover:shadow-xl w-full";
+
+                        return (course as any).link ? (
+                            <Link href={(course as any).link} key={index} className={cardClasses}>
+                                {CardContent}
+                            </Link>
+                        ) : (
+                            <div key={index} className={cardClasses}>
+                                {CardContent}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

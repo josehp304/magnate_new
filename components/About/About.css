@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #E4E7DF;
+    background-color: var(--background);
     /* Light beige/off-white from image */
     color: #1a1a1a;
     position: relative;
@@ -72,7 +72,7 @@
 
 .signature-svg path {
     fill: none;
-    stroke: #1a1a1a;
+    stroke: var(--foreground);
     stroke-width: 2px;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -82,7 +82,7 @@
     font-size: 11px;
     letter-spacing: 0.1em;
     font-weight: 600;
-    color: #000;
+    color: var(--foreground);
     line-height: 1.4;
     text-transform: uppercase;
     font-family: var(--font-geist-mono);
