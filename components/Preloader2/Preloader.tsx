@@ -155,10 +155,7 @@ const Preloader: React.FC<PreloaderProps> = ({
                     </video>
                 </div>
 
-                <nav className={styles.nav}>
-                    <p className={styles.text}></p> {/* Left side empty or logo placeholder if needed, keeping structure */}
-                    <a href="/demo" className={styles.text} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>Get Free Demo</a>
-                </nav>
+
 
                 <footer className={styles.footer}>
                     {/* Footer content can be updated or kept as purely decorative/info if not specified. 
@@ -176,7 +173,7 @@ const Preloader: React.FC<PreloaderProps> = ({
                     <h1><span>Career-Focused</span></h1>
                     <h1><span>Learning Platform</span></h1>
                     <div style={{ marginTop: '2em', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1em' }}>
-                        <p className={styles.text} style={{ fontSize: '1.2em', textTransform: 'none', opacity: 0.9 }}>
+                        <p className={`${styles.text} ${styles.subText}`}>
                             <span>Practical skills. Industry mentorship. Career outcomes.</span>
                         </p>
                         <a href="/enroll" className={styles.text} style={{ marginTop: '1em', padding: '1em 2em', border: '1px solid currentColor', borderRadius: '50px' }}>

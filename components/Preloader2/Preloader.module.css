@@ -168,7 +168,17 @@
     will-change: transform;
 }
 
+.subText {
+    font-size: 1.2em;
+    text-transform: none;
+    opacity: 0.9;
+}
+
 @media (max-width: 900px) {
+    .subText {
+        font-size: 3.5vw;
+    }
+
     .text {
         font-size: 13px;
     }
@@ -187,10 +197,6 @@
     }
 
     .coordinates {
-        top: 65%;
-        justify-content: center;
-        gap: 1em;
-        color: #fff;
-        opacity: 0.5;
+        display: none;
     }
 }

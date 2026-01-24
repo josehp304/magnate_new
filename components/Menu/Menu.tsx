@@ -335,7 +335,14 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                             </div>
                         </div>
 
+
+
                         <div className="nav-menu-toggle-open">
+                            <div className="nav-menu-demo">
+                                <div className="revealer">
+                                    <a href="/demo" className="sm caps mono">Get Free Demo</a>
+                                </div>
+                            </div>
                             <div className="revealer" onClick={openMenu}>
                                 <p className="sm caps mono" ref={menuBtnRef}>
                                     Menu
@@ -386,7 +393,6 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                             { path: "/work", label: "work," },
                             { path: "/studio", label: "studio," },
                             { path: "/archive", label: "archive," },
-
                             { path: "/contact", label: "contact" },
 
                         ].map((item) => (
@@ -402,6 +408,14 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                                 </a>
                             </div>
                         ))}
+                        <div className="free-demo-menu">
+                            <a href="/get-free-demo" onClick={(e) => {
+                                e.preventDefault();
+                                navigateTo("/get-free-demo");
+                            }}>
+                                <h1>Get Free Demo</h1>
+                            </a>
+                        </div>
                     </div>
                     <div className="menu-footer" ref={menuFooterColsRef}>
                         <div className="menu-footer-col">
