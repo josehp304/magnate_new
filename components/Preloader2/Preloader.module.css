@@ -104,9 +104,11 @@
     width: 100%;
     text-align: center;
     text-transform: uppercase;
-    font-size: 7vw;
+    font-size: 12rem;
+    font-family: humane;
+    font-weight: 900;
     line-height: 0.85;
-    letter-spacing: -0.25rem;
+    letter-spacing: 0.25rem;
     color: #fff;
 }
 
@@ -192,8 +194,8 @@
     }
 
     .header h1 {
-        font-size: 10vw;
-        letter-spacing: -0.125rem;
+        font-size: 7rem;
+        /* letter-spacing: -0.125rem; */
     }
 
     .coordinates {

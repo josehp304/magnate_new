@@ -42,6 +42,14 @@ body {
   font-display: swap;
 }
 
+@font-face {
+  font-family: "humane";
+  src: url("/fonts/Variable-TT/Humane-VF.ttf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap
+}
+
 html.lenis {
   height: auto;
 }
