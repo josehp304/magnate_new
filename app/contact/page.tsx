@@ -104,11 +104,11 @@ const ContactPage = () => {
         // Temporary logic: Construct mailto link
         const subject = `Course Inquiry from ${formData.fullName}`;
         const body = `Name: ${formData.fullName}%0D%0APhone: ${formData.phone}%0D%0ACourse: ${formData.course}`;
-        window.location.href = `mailto:contact@example.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@magnatestudyabroad.com?subject=${subject}&body=${body}`;
     };
 
     const handleWhatsApp = () => {
-        window.open("https://wa.me/1234567890", "_blank");
+        window.open("https://wa.me/919207995577", "_blank");
     };
 
     return (
@@ -184,6 +184,29 @@ const ContactPage = () => {
                         <button className="whatsapp-btn" onClick={handleWhatsApp}>
                             Chat on WhatsApp
                         </button>
+                    </Copy>
+                </div>
+
+                <div className="contact-details" style={{ marginTop: '3rem', display: 'flex', flexDirection: 'column', gap: '1.5em' }}>
+                    <Copy delay={1.6}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Phone</p>
+                            <p className="sm" style={{ fontWeight: 400, fontSize: '1.1rem' }}>+91 9207995577</p>
+                        </div>
+                    </Copy>
+                    <Copy delay={1.7}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Email</p>
+                            <a href="mailto:info@magnatestudyabroad.com" className="sm" style={{ fontWeight: 400, fontSize: '1.1rem', color: 'inherit', textDecoration: 'none' }}>info@magnatestudyabroad.com</a>
+                        </div>
+                    </Copy>
+                    <Copy delay={1.8}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25em' }}>
+                            <p style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', opacity: 0.6 }}>Address</p>
+                            <p className="sm" style={{ maxWidth: '300px', lineHeight: '1.4', fontWeight: 400, fontSize: '1.1rem' }}>
+                                Magnate Study Abroad, 1st Floor,<br /> Jairaj Building, Kochi, India - 682024
+                            </p>
+                        </div>
                     </Copy>
                 </div>
             </div>

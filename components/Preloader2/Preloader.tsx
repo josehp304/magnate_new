@@ -133,9 +133,16 @@ const Preloader: React.FC<PreloaderProps> = ({
             ease: "power3.out",
             delay: 5.75,
             onComplete: () => {
-                document.body.style.overflow = '';
-                document.body.style.cursor = '';
-                if (onComplete) onComplete();
+                gsap.to(".logo", {
+                    opacity: 0,
+                    duration: 1,
+                    delay: 1,
+                    onComplete: () => {
+                        document.body.style.overflow = '';
+                        document.body.style.cursor = '';
+                        if (onComplete) onComplete();
+                    }
+                });
             }
         });
 
