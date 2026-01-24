@@ -1,6 +1,6 @@
 "use client";
 import "./contact.css";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import Copy from "../../components/Copy/Copy";
 
@@ -11,20 +11,26 @@ import { useGSAP } from "@gsap/react";
 const ContactPage = () => {
     const router = useTransitionRouter();
     const contactRef = useRef<HTMLDivElement>(null);
+    const [formData, setFormData] = useState({
+        fullName: "",
+        phone: "",
+        course: "Course 1"
+    });
 
     useGSAP(
         () => {
             if (!contactRef.current) return;
-            const contactImg = contactRef.current.querySelector(".contact-img");
+            // Animate Map Wrapper instead of .contact-img
+            const mapWrapper = contactRef.current.querySelector(".contact-map-wrapper");
             const footerTexts = contactRef.current.querySelectorAll(
                 ".contact-footer .footer-text"
             );
 
-            gsap.set(contactImg, {
+            gsap.set(mapWrapper, {
                 clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
             });
 
-            gsap.to(contactImg, {
+            gsap.to(mapWrapper, {
                 clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
                 duration: 1,
                 delay: 0.85,
@@ -89,66 +95,95 @@ const ContactPage = () => {
         );
     }
 
-    const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, route: string) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        router.push(route, {
-            onTransitionReady: slideInOut,
-        });
+        // Temporary logic: Construct mailto link
+        const subject = `Course Inquiry from ${formData.fullName}`;
+        const body = `Name: ${formData.fullName}%0D%0APhone: ${formData.phone}%0D%0ACourse: ${formData.course}`;
+        window.location.href = `mailto:contact@example.com?subject=${subject}&body=${body}`;
+    };
+
+    const handleWhatsApp = () => {
+        window.open("https://wa.me/1234567890", "_blank");
     };
 
     return (
         <div className="contact" ref={contactRef}>
-            <div className="contact-img-wrapper">
-                <div className="contact-img">
-                    <img src="/images/contact/contact.jpeg" alt="" />
-                </div>
+            <div className="contact-map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.4364866087533!2d-79.39486242385153!3d43.64981197110191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34c56e29ac3d%3A0x6bba4f38e64cc392!2sRichmond%20St%20W%2C%20Toronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sus!4v1706100000000!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, filter: "grayscale(100%) invert(90%)" }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
             </div>
-            <div className="contact-copy">
-                <div className="contact-copy-bio">
+
+            <div className="contact-form-container">
+                <div className="contact-header">
                     <Copy delay={1}>
-                        <p className="caps sm">Wu Wei Studios</p>
-                        <p className="caps sm">Toronto / Copenhagen</p>
+                        <h1 className="header-title">Start Your Journey</h1>
                     </Copy>
                 </div>
 
-                <div className="contact-copy-tags">
-                    <Copy delay={1.15}>
-                        <p className="caps sm">Web Systems</p>
-                        <p className="caps sm">Interface Design</p>
-                        <p className="caps sm">Creative Development</p>
-                        <p className="caps sm">End To End Delivery</p>
+                <form className="contact-form" onSubmit={handleSubmit}>
+                    <Copy delay={1.1}>
+                        <div className="form-group">
+                            <label>Full Name</label>
+                            <input
+                                type="text"
+                                name="fullName"
+                                placeholder="John Doe"
+                                value={formData.fullName}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
                     </Copy>
-                </div>
 
-                <div className="contact-copy-addresses">
-                    <div className="contact-address">
-                        <Copy delay={1.3}>
-                            <p className="caps sm">Toronto</p>
-                            <p className="caps sm">Studio 302, Richmond St W</p>
-                            <p className="caps sm">M5V 3A8</p>
-                        </Copy>
-                    </div>
+                    <Copy delay={1.2}>
+                        <div className="form-group">
+                            <label>Phone (Country Code)</label>
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="+1 234 567 8900"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                    </Copy>
 
-                    <div className="contact-address">
-                        <Copy delay={1.45}>
-                            <p className="caps sm">Copenhagen</p>
-                            <p className="caps sm">Unit 02 Refshalevej 167A</p>
-                            <p className="caps sm">1432 KØBENHAVN K</p>
-                        </Copy>
-                    </div>
-                </div>
+                    <Copy delay={1.3}>
+                        <div className="form-group">
+                            <label>Select Course</label>
+                            <select name="course" title="Select Course" value={formData.course} onChange={handleChange}>
+                                <option value="Course 1">Design Fundamentals</option>
+                                <option value="Course 2">Advanced Development</option>
+                                <option value="Course 3">Full Stack Pro</option>
+                            </select>
+                        </div>
+                    </Copy>
 
-                <div className="contact-copy-links">
-                    <Copy delay={1.6}>
-                        <a href="/studio" onClick={(e) => handleNavigation(e, "/studio")}>
-                            <p className="caps sm">Studio Overview</p>
-                        </a>
-                        <a href="/archive" onClick={(e) => handleNavigation(e, "/archive")}>
-                            <p className="caps sm">Project Archive</p>
-                        </a>
-                        <a href="/work" onClick={(e) => handleNavigation(e, "/work")}>
-                            <p className="caps sm">Selected Work</p>
-                        </a>
+                    <Copy delay={1.4}>
+                        <button type="submit" className="submit-btn">
+                            Submit Application
+                        </button>
+                    </Copy>
+                </form>
+
+                <div className="contact-actions">
+                    <Copy delay={1.5}>
+                        <button className="whatsapp-btn" onClick={handleWhatsApp}>
+                            Chat on WhatsApp
+                        </button>
                     </Copy>
                 </div>
             </div>

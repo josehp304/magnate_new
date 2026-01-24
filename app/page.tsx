@@ -20,7 +20,7 @@ try {
   console.warn("CustomEase failed to register", e);
 }
 
-import Preloader from "../components/Preloader/Preloader";
+import Preloader from "../components/Preloader2/Preloader";
 import HoverImageLinks from "@/components/HoverImageLinks/HoverImageLinks";
 
 export default function Home() {

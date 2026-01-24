@@ -27,6 +27,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "nm";
+  cursor: url("/cursor.png"), auto;
 }
 
 @font-face {
