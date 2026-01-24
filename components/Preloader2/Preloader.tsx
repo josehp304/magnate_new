@@ -182,13 +182,13 @@ const Preloader: React.FC<PreloaderProps> = ({
             </div>
 
             <div className={`${styles.logo} logo`}>
-                <div className={`${styles.char} char`}><h1>C</h1></div>
-                <div className={`${styles.char} char anim-out`}><h1>l</h1></div>
+                <div className={`${styles.char} char`}><h1>M</h1></div>
                 <div className={`${styles.char} char anim-out`}><h1>a</h1></div>
-                <div className={`${styles.char} char anim-out`}><h1>s</h1></div>
-                <div className={`${styles.char} char anim-out`}><h1>h</h1></div>
-                <div className={`${styles.char} char anim-out`}><h1>o</h1></div>
+                <div className={`${styles.char} char anim-out`}><h1>g</h1></div>
                 <div className={`${styles.char} char anim-out`}><h1>n</h1></div>
+                <div className={`${styles.char} char anim-out`}><h1>a</h1></div>
+                <div className={`${styles.char} char anim-out`}><h1>t</h1></div>
+                <div className={`${styles.char} char anim-out`}><h1>e</h1></div>
                 <div className={`${styles.char} char anim-in`}><h1>.</h1></div>
             </div>
         </div>
