@@ -156,26 +156,42 @@ const Preloader: React.FC<PreloaderProps> = ({
                 </div>
 
                 <nav className={styles.nav}>
-                    <p className={styles.text}>&#9679;</p>
-                    <p className={styles.text}>&#9679;</p>
+                    <p className={styles.text}></p> {/* Left side empty or logo placeholder if needed, keeping structure */}
+                    <a href="/demo" className={styles.text} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>Get Free Demo</a>
                 </nav>
 
                 <footer className={styles.footer}>
-                    <p className={styles.text}>ufc</p>
-                    <p className={styles.text}>podcasts</p>
-                    <p className={styles.text}>betting</p>
-                    <p className={styles.text}>rankings</p>
-                    <p className={styles.text}>news</p>
+                    {/* Footer content can be updated or kept as purely decorative/info if not specified. 
+                         Request didn't explicitly say to remove footer items, but "Subtext" was requested.
+                         I'll place Subtext in the header area or footer depending on layout. 
+                         The design has a big central header. The "Subtext" Practical skills... seems better suited 
+                         near the main headline or at the bottom.
+                         Let's put the subtext in the footer area for a clean look or under the main title.
+                         Given the layout, putting subtext under the title in .header seems standard for "Hero".
+                     */}
                 </footer>
 
                 <div className={`${styles.header} header`}>
-                    <h1><span>Combat from</span></h1>
-                    <h1><span>the streets of</span></h1>
-                    <h1><span>Kansas</span></h1>
-                    <p className={styles.text}><span>( watch the fight )</span></p>
+                    <h1><span>India&rsquo;s Top</span></h1>
+                    <h1><span>Career-Focused</span></h1>
+                    <h1><span>Learning Platform</span></h1>
+                    <div style={{ marginTop: '2em', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1em' }}>
+                        <p className={styles.text} style={{ fontSize: '1.2em', textTransform: 'none', opacity: 0.9 }}>
+                            <span>Practical skills. Industry mentorship. Career outcomes.</span>
+                        </p>
+                        <a href="/enroll" className={styles.text} style={{ marginTop: '1em', padding: '1em 2em', border: '1px solid currentColor', borderRadius: '50px' }}>
+                            <span>Enroll to become a Magnate</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div className={`${styles.coordinates} coordinates`}>
+                    {/* Keeping coordinates or removing if they clash? 
+                         User didn't ask to remove, but they might be distracting. 
+                         I will keep them as part of the "Magnate" aesthetic unless told otherwise, 
+                         or maybe update to something relevant like "Since 2025" etc.
+                         For now, I'll leave them to maintain the visual balance.
+                     */}
                     <p className={styles.text}><span>37.6934° N</span></p>
                     <p className={styles.text}><span>97.3382° W</span></p>
                 </div>
