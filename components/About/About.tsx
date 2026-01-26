@@ -68,6 +68,13 @@ const About = () => {
 
                         </p>
                     </BlockCopy> */}
+
+
+        Most people don’t struggle because they lack education. 
+                    They struggle because what they learn doesn’t 
+                    translate into real work. We exist to change that. 
+                    Our programs are built around practical skills, industry
+                    expectations, and hands-on execution. Learners don’t simply complete a course; they move forward with clarity, confidence, and the ability to step into meaningful professional roles.
                 </h2>
             </div>
 
