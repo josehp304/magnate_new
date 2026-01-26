@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const quote =
-        "In prestige beauty, the brands redefining the space are taking a social-first approach - leveraging the power of social and influence to build community, deepen loyalty, drive sales, and create enduring brand equity.";
+        "Most people don’t struggle because they lack education.     They struggle because what they learn doesn’t   translate into real work. We exist to change that.     Our programs are built around practical skills, industry";
 
     useGSAP(
         () => {
@@ -62,20 +62,13 @@ const About = () => {
                     <AnimatedCopy colorInitial="#2b1d08ff" colorAccent="#8d7219ff" colorFinal="#e8d8d8ff">
                         {quote}
                     </AnimatedCopy>
-                    {/* <BlockCopy>
+                    <BlockCopy>
                         <p>
-                            {quote}
+            {quote}
 
                         </p>
-                    </BlockCopy> */}
-
-
-        Most people don’t struggle because they lack education. 
-                    They struggle because what they learn doesn’t 
-                    translate into real work. We exist to change that. 
-                    Our programs are built around practical skills, industry
-                    expectations, and hands-on execution. Learners don’t simply complete a course; they move forward with clarity, confidence, and the ability to step into meaningful professional roles.
-                </h2>
+                    </BlockCopy>
+         </h2>
             </div>
 
             <div className="about-signature">
