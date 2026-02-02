@@ -2,23 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 
 const courses = [
-    { title: "Finance Mastery", color: "#FFD700", link: "/courses/finance" },
-    { title: "Montessori TTC", color: "#FFD700" },
-    { title: "Full-Stack Web Development", color: "#FFD700" },
-    { title: "Quantity Surveying", color: "#FFD700" },
-    { title: "SAP FICO", color: "#FFD700" },
-    { title: "Data Science", color: "#FFD700" },
-    { title: "Digital Marketing", color: "#FFD700" },
-    { title: "Business Accounting", color: "#FFD700" },
-    { title: "MEP Design", color: "#FFD700" },
-    { title: "Python Programming", color: "#FFD700" },
-    { title: "Stock Market 360", color: "#FFD700" },
-    { title: "Spoken English", color: "#FFD700" },
-    { title: "German Language", color: "#FFD700" },
-    { title: "Kerala PSC", color: "#FFD700" },
-    { title: "Banking", color: "#FFD700" },
-    { title: "Hospital Administration", color: "#FFD700" },
-    { title: "Data Analytics", color: "#FFD700" },
+    { title: "Full-Stack Web Development", color: "#FFD700", link: "/courses/full-stack" },
+    { title: "Diploma in Finance", color: "#FFD700", link: "/courses/finance" },
+    { title: "AI Augmented Finance", color: "#FFD700", link: "/courses/ai-augmented-finance" },
+    { title: "German Language", color: "#FFD700", link: "/courses/german" },
+    { title: "IELTS & PTE", color: "#FFD700", link: "/courses/ielts-pte" },
+    { title: "3D Digital Marketing", color: "#FFD700", link: "/courses/digital-marketing" },
+    { title: "Data Analytics (ML & AI)", color: "#FFD700", link: "/courses/data-analytics" },
+    { title: "AI Automation", color: "#FFD700", link: "/courses/ai-automation" },
 ];
 
 const CourseList = () => {

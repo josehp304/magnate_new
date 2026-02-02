@@ -115,7 +115,7 @@ const ContactPage = () => {
         <div className="contact" ref={contactRef}>
             <div className="contact-map-wrapper">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.4364866087533!2d-79.39486242385153!3d43.64981197110191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34c56e29ac3d%3A0x6bba4f38e64cc392!2sRichmond%20St%20W%2C%20Toronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sus!4v1706100000000!5m2!1sen!2sus"
+                    src="https://maps.google.com/maps?q=Magnate%20Study%20Abroad%2C%20Jairaj%20Building%2C%20Kochi&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0, filter: "grayscale(100%) invert(90%)" }}

@@ -1,199 +1,369 @@
 import React from 'react';
-import BtnLink from '@/components/BtnLink/BtnLink';
 import Footer from '@/components/Footer/Footer';
-import { ArrowUpRight, CheckCircle2, GraduationCap, Briefcase, Award } from 'lucide-react';
+import CourseHero from '@/components/CourseHero/CourseHero';
+import OverviewSection, { OverviewFeature, OverviewSkill } from '@/components/OverviewSection/OverviewSection';
+import VideoTestimonials, { TestimonialVideo } from '@/components/VideoTestimonials/VideoTestimonials';
+import ToolsSection, { Tool } from '@/components/ToolsSection/ToolsSection';
+import GuideSection, { GuideStep } from '@/components/GuideSection/GuideSection';
+import RoadmapSection, { RoadmapPhase } from '@/components/RoadmapSection/RoadmapSection';
+import MentorsSection, { Mentor } from '@/components/MentorsSection/MentorsSection';
+import CareerPathsSection, { Career } from '@/components/CareerPathsSection/CareerPathsSection';
+import CertificateSection, { CertificateFeature } from '@/components/CertificateSection/CertificateSection';
+import TestimonialsSection, { Testimonial } from '@/components/TestimonialsSection/TestimonialsSection';
+import FAQSection, { FAQItem } from '@/components/FAQSection/FAQSection';
 
 export const metadata = {
-    title: "Finance Mastery Course | Magnate",
-    description: "Launch your career in finance with our comprehensive job-oriented course.",
+    title: "Finance & Investment Banking Course | Magnate",
+    description: "Master financial modeling, valuation, and investment banking with our comprehensive job-oriented course.",
 };
+
+// --- DATA DEFINITIONS ---
+
+// 1. Overview Data
+const overviewFeatures: OverviewFeature[] = [
+    { icon: "📊", text: "100+ Financial Models" },
+    { icon: "💼", text: "Live Deal Simulations" },
+    { icon: "🎓", text: "CFA/FRM Aligned" },
+    { icon: "🤝", text: "Placement with Top Banks" }
+];
+
+const overviewSkills: OverviewSkill[] = [
+    { title: "Modeling", description: "DCF, LBO, M&A Models" },
+    { title: "Analysis", description: "Financial Statement Analysis" },
+    { title: "Valuation", description: "Relative & Intrinsic Valuation" },
+    { title: "Tools", description: "Excel, PowerPoint, Bloomberg" }
+];
+
+// 2. Video Testimonials Data
+const videoTestimonials: TestimonialVideo[] = [
+    {
+        id: 1,
+        video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        poster: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000&auto=format&fit=crop",
+        name: "James Wilson",
+        role: "Analyst @ Goldman Sachs"
+    },
+    {
+        id: 2,
+        video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        poster: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop",
+        name: "Priya Sharma",
+        role: "Associate @ JP Morgan"
+    },
+    {
+        id: 3,
+        video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        poster: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop",
+        name: "Robert Chang",
+        role: "Equity Research @ Morgan Stanley"
+    }
+];
+
+// 3. Tools Data
+const tools: Tool[] = [
+    { name: "Excel", icon: "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" },
+    { name: "PowerPoint", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg" },
+    { name: "Bloomberg", icon: "https://upload.wikimedia.org/wikipedia/commons/6/69/Bloomberg_Terminal_Logo.svg", darkModeInvert: true },
+    { name: "Tableau", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" },
+    { name: "Python", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" },
+    { name: "Power BI", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" },
+];
+
+// 4. Guide Data
+const guideSteps: GuideStep[] = [
+    {
+        number: 1,
+        title: "Financial Foundations",
+        description: "Master accounting principles, financial statements, and core finance concepts used in investment banking."
+    },
+    {
+        number: 2,
+        title: "Advanced Modeling",
+        description: "Build complex financial models from scratch, including Discounted Cash Flow (DCF), LBOs, and M&A models."
+    },
+    {
+        number: 3,
+        title: "Deal Execution",
+        description: "Learn the art of deal-making, pitch deck creation, and simulated transactions with industry experts."
+    }
+];
+
+// 5. Roadmap Data
+const roadmapData: RoadmapPhase[] = [
+    {
+        phase: "Phase 1",
+        description: "Core Accounting & Excel",
+        color: "#16A34A", // Greenish for money/finance
+        icon: "📊",
+        items: [
+            { type: 'node', label: 'Advanced Excel', status: 'core' },
+            { type: 'node', label: 'Financial Statement Analysis', status: 'core' },
+            { type: 'node', label: 'Accounting Standards (GAAP/IFRS)', status: 'core' },
+            { type: 'checkpoint', label: 'Project: 3-Statement Model', status: 'nav' }
+        ]
+    },
+    {
+        phase: "Phase 2",
+        description: "Valuation & Modeling",
+        color: "#EA580C",
+        icon: "📈",
+        items: [
+            { type: 'node', label: 'DCF Valuation', status: 'core' },
+            { type: 'node', label: 'Relative Valuation (Comps)', status: 'core' },
+            { type: 'node', label: 'Sensitivity Analysis', status: 'tool' },
+            { type: 'checkpoint', label: 'Project: Company Valuation', status: 'nav' }
+        ]
+    },
+    {
+        phase: "Phase 3",
+        description: "Investment Banking",
+        color: "#2563EB",
+        icon: "🏦",
+        items: [
+            { type: 'node', label: 'Mergers & Acquisitions (M&A)', status: 'core' },
+            { type: 'node', label: 'Leveraged Buyouts (LBO)', status: 'core' },
+            { type: 'node', label: 'Pitch Books & Decks', status: 'tool' },
+            { type: 'checkpoint', label: 'Project: M&A Pitch Deck', status: 'nav' }
+        ]
+    },
+    {
+        phase: "Phase 4",
+        description: "Career Prep",
+        color: "#9333EA",
+        icon: "🎓",
+        items: [
+            { type: 'node', label: 'Resume & LinkedIn', status: 'core' },
+            { type: 'node', label: 'Technical Interviews', status: 'core' },
+            { type: 'node', label: 'Mock Interviews', status: 'tool' },
+            { type: 'checkpoint', label: 'Final Placement Drive', status: 'nav' }
+        ]
+    }
+];
+
+// 6. Mentors Data
+const mentors: Mentor[] = [
+    {
+        name: "Vikram Malhotra",
+        role: "Vice President, Goldman Sachs",
+        photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop",
+        companyLogo: "https://upload.wikimedia.org/wikipedia/commons/6/61/Goldman_Sachs.svg",
+        bio: "Over 10 years of experience in Investment Banking and M&A. Mentored 500+ students to break into top-tier banks."
+    },
+    {
+        name: "Sarah Lee",
+        role: "Associate, Blackstone",
+        photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop",
+        companyName: "Blackstone",
+        bio: "Specializes in Private Equity and Real Estate investments. Expert in LBO modeling and deal structuring."
+    },
+    {
+        name: "Rahul Mehta",
+        role: "CFA, Portfolio Manager",
+        photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop",
+        companyName: "Fidelity",
+        bio: "CFA Charterholder with deep expertise in Asset Management and Equity Research. Passionate about financial education."
+    }
+];
+
+// 7. Career Paths Data
+const careerPaths: Career[] = [
+    {
+        title: 'Investment Banker',
+        salary: 120,
+        growth: 22,
+        demand: 'high',
+        skills: ['Valuation', 'M&A', 'Modeling'],
+        companies: [
+            { name: 'J.P. Morgan', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/JPMorgan_Chase.svg/200px-JPMorgan_Chase.svg.png' },
+            { name: 'Citi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Citigroup_Logo.svg/200px-Citigroup_Logo.svg.png' }
+        ],
+        color: '#16A34A',
+        featured: true
+    },
+    {
+        title: 'Private Equity Analyst',
+        salary: 140,
+        growth: 18,
+        demand: 'critical',
+        skills: ['LBO', 'Due Diligence', 'Deal Sourcing'],
+        companies: [
+            { name: 'Blackstone', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/The_Blackstone_Group_logo.svg/200px-The_Blackstone_Group_logo.svg.png' },
+            { name: 'KKR', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/KKR_logo.svg/200px-KKR_logo.svg.png' }
+        ],
+        color: '#EA580C',
+        featured: true
+    },
+    {
+        title: 'Equity Research Associate',
+        salary: 100,
+        growth: 15,
+        demand: 'moderate',
+        skills: ['Analysis', 'Forecasting', 'Writing'],
+        companies: [
+            { name: 'Morgan Stanley', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Morgan_Stanley_Logo_1.svg/200px-Morgan_Stanley_Logo_1.svg.png' }
+        ],
+        color: '#2563EB'
+    }
+];
+
+const careerStats = {
+    placementRate: "93%",
+    avgSalary: "$105K"
+};
+
+// 8. Certificate Data
+const certificateFeatures: CertificateFeature[] = [
+    {
+        title: "Industry Recognized",
+        description: "Accepted by top investment banks and financial institutions globally."
+    },
+    {
+        title: "Deal Experience",
+        description: "Showcase a portfolio of live deal simulations and valuation models."
+    },
+    {
+        title: "CFA Aligned",
+        description: "Curriculum covers key topics from CFA Level 1 & 2."
+    }
+];
+
+// 9. Text Testimonials Data
+const textTestimonials: Testimonial[] = [
+    {
+        id: 1,
+        name: "Amit Patel",
+        role: "Associate @ Deutsche Bank",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=200&auto=format&fit=crop",
+        quote: "The financial modeling modules were practically identical to what I do on the job. Magnate gave me the edge I needed."
+    },
+    {
+        id: 2,
+        name: "Jessica Wong",
+        role: "Analyst @ Deloitte",
+        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&h=200&auto=format&fit=crop",
+        quote: "Transitioning from engineering to finance seemed impossible until I found this course. The mentorship was a game changer."
+    }
+];
+
+// 10. FAQ Data
+const faqs: FAQItem[] = [
+    {
+        question: "Do I need a finance degree to apply?",
+        answer: "No, a finance degree is not mandatory. We start with the basics of accounting and finance. However, a strong interest in numbers and analytical thinking is recommended."
+    },
+    {
+        question: "Is this course helpful for CFA preparation?",
+        answer: "Yes! Our curriculum aligns with major portions of the CFA Level 1 and Level 2 exams, giving you a strong head start if you plan to pursue the charter."
+    },
+    {
+        question: "What kind of jobs can I get after this course?",
+        answer: "You can apply for roles like Investment Banking Analyst, Private Equity Analyst, Equity Research Associate, Financial Analyst, and Corporate Finance Manager."
+    },
+    {
+        question: "Do you provide placement assistance?",
+        answer: "Yes, we have a dedicated placement cell that helps with resume reviews, mock interviews, and connecting you with our network of hiring partners in the finance industry."
+    }
+];
 
 export default function FinanceCoursePage() {
     return (
         <main className="w-full bg-[#1a1a1a] text-[#e4e7df] font-sans selection:bg-[#ffc22a] selection:text-black">
 
             {/* 1. Hero Section */}
-            <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 py-20 border-b border-white/10">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#ffc22a] rounded-full blur-[150px] opacity-10 pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+            <CourseHero
+                title="Investment Banking & Finance"
+                description="Become a top 1% finance professional. Master financial modeling, valuation, and exam prep for CFA/FRM with industry experts."
+                bannerText="Enroll now & get access to Bloomberg Terminal Training →"
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "Our Courses", href: "/courses" },
+                    { label: "Financial Analyst", isActive: true }
+                ]}
+                ratingCount={850}
+                learnerCount="1.5K +"
+                courseType="Online / Hybrid"
+                duration="6 Months"
+                imageSrc="https://images.unsplash.com/photo-1611974765270-ca12586343bb?q=80&w=2070&auto=format&fit=crop"
+                enquiryHref="/enroll"
+                syllabusHref="/syllabus"
+            />
 
-                <div className="max-w-4xl z-10">
-                    <div className="inline-block px-4 py-1.5 border border-[#ffc22a]/30 rounded-full bg-[#ffc22a]/5 text-[#ffc22a] text-sm font-mono tracking-wider mb-6">
-                        FINANCE CAREER PROGRAM
-                    </div>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight mb-8">
-                        Master the Art of <br />
-                        <span className="text-[#ffc22a]">Financial Growth</span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-white/60 max-w-2xl leading-relaxed mb-10">
-                        A comprehensive program designed to transform beginners into finance professionals.
-                        Learn financial modeling, valuation, and investment strategies from industry experts.
-                    </p>
+            {/* 2. Overview Section */}
+            <OverviewSection
+                title="Launch Your Career on Wall Street"
+                description="A comprehensive program designed to take you from a novice to a job-ready finance professional. Learn by doing with real-world case studies."
+                features={overviewFeatures}
+                skillsTitle="Core Competencies"
+                skillsDescription="Gain the technical skills and practical knowledge required by top financial firms."
+                skills={overviewSkills}
+                ctaText="Download Syllabus"
+            // ctaAction handled by link inside or default
+            />
 
-                    <div className="flex flex-wrap gap-4">
-                        <BtnLink label="Enroll Now" route="/enroll" dark={false} />
-                        <BtnLink label="View Syllabus" route="/syllabus" dark={true} />
-                    </div>
-                </div>
-            </section>
+            {/* 3. Video Testimonials */}
+            <VideoTestimonials testimonials={videoTestimonials} />
 
-            {/* 2. What you will learn */}
-            <section className="px-6 md:px-12 py-24 border-b border-white/10 relative overflow-hidden">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                        <div className="lg:col-span-4">
-                            <h2 className="text-3xl md:text-4xl font-medium mb-6">What you will learn</h2>
-                            <p className="text-lg text-white/50">
-                                Our curriculum is designed to make you industry-ready from day one.
-                            </p>
-                        </div>
-                        <div className="lg:col-span-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                                {[
-                                    "Financial Modeling & Analysis",
-                                    "Investment Banking Fundamentals",
-                                    "Corporate Finance & Strategy",
-                                    "Equity Research & Valuation",
-                                    "Portfolio Management",
-                                    "Risk Management Fundamentals",
-                                    "Excel & Power BI for Finance",
-                                    "Financial Statement Analysis"
-                                ].map((item, index) => (
-                                    <div key={index} className="flex items-start gap-4 p-4 rounded-lg bg-white/5 border border-white/5 hover:border-[#ffc22a]/30 transition-colors">
-                                        <CheckCircle2 className="w-6 h-6 text-[#ffc22a] shrink-0 mt-0.5" />
-                                        <span className="text-lg">{item}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* 4. Tools Section */}
+            <ToolsSection
+                title="Master Industry Tools"
+                description="Gain proficiency in the essential software and platforms used by finance professionals."
+                tools={tools}
+            />
 
-            {/* 3. Who can apply */}
-            <section className="px-6 md:px-12 py-24 border-b border-white/10 bg-white/2">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row gap-12 items-center">
-                        <div className="flex-1">
-                            <div className="w-16 h-16 bg-[#ffc22a] rounded-2xl flex items-center justify-center mb-8 text-black">
-                                <GraduationCap className="w-8 h-8" />
-                            </div>
-                            <h2 className="text-3xl md:text-4xl font-medium mb-6">Who can apply?</h2>
-                            <p className="text-lg text-white/60 mb-8 max-w-lg">
-                                This program is open to individuals passionate about finance and looking to fast-track their careers.
-                            </p>
-                            <ul className="space-y-4">
-                                {[
-                                    "Final year students (Commerce/BBA/MBA)",
-                                    "Fresh graduates looking for jobs",
-                                    "Working professionals wanting to switch to core finance",
-                                    "CA/CFA aspirants seeking practical exposure"
-                                ].map((item, index) => (
-                                    <li key={index} className="flex items-center gap-3 text-lg">
-                                        <div className="w-2 h-2 rounded-full bg-[#ffc22a]"></div>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="flex-1 relative">
-                            {/* Decorative elements representing eligibility */}
-                            <div className="aspect-square rounded-3xl bg-gradient-to-tr from-[#ffc22a]/20 to-transparent border border-white/10 p-8 flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale mix-blend-luminosity"></div>
-                                <div className="relative z-10 glass-card p-6 rounded-xl border border-white/20 bg-black/40 backdrop-blur-md">
-                                    <span className="text-2xl font-mono text-[#ffc22a]">No prior experience required</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* 5. Guide Section */}
+            <GuideSection
+                title="Your Journey to Success"
+                steps={guideSteps}
+                ctaTitle="Ready to build your future?"
+                ctaButtonText="Apply Now"
+                ctaHref="/enroll"
+            />
 
-            {/* 4. Career Outcomes */}
-            <section className="px-6 md:px-12 py-24 border-b border-white/10">
-                <div className="max-w-7xl mx-auto text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-medium mb-6">Career Outcomes</h2>
-                    <p className="text-lg text-white/50 max-w-2xl mx-auto">
-                        Upon completion, you will be qualified for various high-demand roles in the financial sector.
-                    </p>
-                </div>
+            {/* 6. Roadmap Section */}
+            <RoadmapSection
+                title="Learning Roadmap"
+                description="A structured curriculum designed to build your expertise step-by-step."
+                roadmapData={roadmapData}
+            />
 
-                <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[
-                        { title: "Financial Analyst", Icon: Briefcase },
-                        { title: "Investment Banker", Icon: ArrowUpRight },
-                        { title: "Equity Researcher", Icon: Award },
-                        { title: "Risk Manager", Icon: CheckCircle2 },
-                        { title: "Credit Analyst", Icon: Briefcase },
-                        { title: "Portfolio Manager", Icon: ArrowUpRight },
-                        { title: "Wealth Manager", Icon: Award },
-                        { title: "Corporate Finance Associate", Icon: CheckCircle2 },
-                    ].map((role, index) => (
-                        <div key={index} className="group p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-[#ffc22a] hover:text-black transition-all duration-300">
-                            <div className="mb-4 text-[#ffc22a] group-hover:text-black transition-colors">
-                                <role.Icon className="w-8 h-8" />
-                            </div>
-                            <h3 className="text-xl font-medium">{role.title}</h3>
-                        </div>
-                    ))}
-                </div>
-            </section>
+            {/* 7. Mentors Section */}
+            <MentorsSection
+                title="Mentored by Industry Leaders"
+                description="Learn from professionals who have worked at the world's leading financial institutions."
+                mentors={mentors}
+            />
 
-            {/* 5. Certifications */}
-            <section className="px-6 md:px-12 py-24 bg-[#ffc22a] text-black border-b border-white/10">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-                    <div className="flex-1">
-                        <div className="inline-block px-4 py-1.5 border border-black/30 rounded-full bg-black/5 text-black text-sm font-mono tracking-wider mb-6">
-                            INDUSTRY RECOGNIZED
-                        </div>
-                        <h2 className="text-4xl md:text-6xl font-medium mb-6 leading-tight">
-                            Earn Your <br />
-                            Certification
-                        </h2>
-                        <p className="text-xl text-black/70 mb-8 max-w-lg">
-                            Get certified by Magnate and validated by top industry partners. Boost your LinkedIn profile and resume.
-                        </p>
-                        <button className="px-8 py-3 bg-black text-white rounded-full font-medium hover:bg-black/80 transition-all flex items-center gap-2">
-                            View Sample Certificate <ArrowUpRight className="w-4 h-4" />
-                        </button>
-                    </div>
-                    <div className="flex-1 flex justify-center">
-                        <div className="w-full max-w-lg bg-white p-2 rounded-xl shadow-2xl skew-y-3 transform hover:skew-y-0 transition-transform duration-500">
-                            <div className="border border-gray-200 p-8 rounded-lg h-[300px] flex flex-col justify-between bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-                                <div className="flex justify-between items-start">
-                                    <div className="text-2xl font-bold tracking-widest text-[#1a1a1a]">MAGNATE</div>
-                                    <Award className="w-12 h-12 text-[#cca000]" />
-                                </div>
-                                <div className="text-center">
-                                    <p className="text-sm text-gray-500 uppercase tracking-widest mb-2">Certificate of Completion</p>
-                                    <h3 className="text-3xl font-serif text-gray-900">Finance Mastery</h3>
-                                </div>
-                                <div className="flex justify-between items-end border-t border-gray-300 pt-4">
-                                    <div>
-                                        <div className="h-10 w-24 bg-contain bg-no-repeat bg-center opacity-80" />
-                                        {/* Signature placeholder */}
-                                        <p className="text-xs text-gray-400 mt-1">Director&apos;s Signature</p>
-                                    </div>
-                                    <div className="text-xs text-gray-400">ID: MAG-2025-FIN</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* 8. Career Paths Section */}
+            <CareerPathsSection
+                title="Career Opportunities"
+                subtitle="WHERE YOU CAN GO"
+                description="Explore the high-growth career paths available to you after completing this course."
+                careers={careerPaths}
+                stats={careerStats}
+            />
 
-            {/* 6. CTA Footer */}
-            <section className="px-6 md:px-12 py-32 text-center bg-[#1a1a1a]">
-                <div className="max-w-3xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-medium mb-8">Ready to start your financial journey?</h2>
-                    <p className="text-xl text-white/50 mb-12">
-                        Join thousands of successful graduates who have transformed their careers with Magnate.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <BtnLink label="Enroll Now" route="/enroll" dark={false} />
-                        <BtnLink label="Download Syllabus" route="/syllabus" dark={true} />
-                    </div>
-                </div>
-            </section>
+            {/* 9. Certificate Section */}
+            <CertificateSection
+                title="Financial Analyst Certification"
+                description="Earn a certification that proves your ability to perform rigorous financial analysis and modeling."
+                features={certificateFeatures}
+                roleName="Certified Investment Banker"
+                backgroundColor="#eab308" // Yellow/Gold for Finance
+            />
+
+            {/* 10. Text Testimonials */}
+            <TestimonialsSection
+                title="Alumni Success"
+                subtitle="Hear from our students who made it to the top."
+                testimonials={textTestimonials}
+            />
+
+            {/* 11. FAQ Section */}
+            <FAQSection
+                title="Questions?"
+                description="We have answers. Here's what you need to know."
+                faqs={faqs}
+            />
 
             <Footer />
         </main>

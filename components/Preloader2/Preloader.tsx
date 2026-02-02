@@ -14,11 +14,13 @@ if (typeof window !== 'undefined') {
 interface PreloaderProps {
     videoSrc?: string;
     onComplete?: () => void;
+    onEnrollClick?: () => void;
 }
 
 const Preloader: React.FC<PreloaderProps> = ({
     videoSrc = "/video.mp4",
-    onComplete
+    onComplete,
+    onEnrollClick
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const counterRef = useRef<HTMLSpanElement>(null);
@@ -183,7 +185,15 @@ const Preloader: React.FC<PreloaderProps> = ({
                         <p className={`${styles.text} ${styles.subText}`}>
                             <span>Practical skills. Industry mentorship. Career outcomes.</span>
                         </p>
-                        <a href="/enroll" className={styles.text} style={{ marginTop: '1em', padding: '1em 2em', border: '1px solid currentColor', borderRadius: '50px' }}>
+                        <a
+                            href="#"
+                            className={styles.text}
+                            style={{ marginTop: '1em', padding: '1em 2em', border: '1px solid currentColor', borderRadius: '50px', cursor: 'pointer' }}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (onEnrollClick) onEnrollClick();
+                            }}
+                        >
                             <span>Enroll to become a Magnate</span>
                         </a>
                     </div>

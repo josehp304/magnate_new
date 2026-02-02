@@ -22,8 +22,24 @@ try {
 
 import Preloader from "../components/Preloader2/Preloader";
 import HoverImageLinks from "@/components/HoverImageLinks/HoverImageLinks";
+import ContactModal from "@/components/ContactModal/ContactModal";
+import { Toaster } from "@/components/ui/toaster";
+import CourseDial from "@/components/CourseDial";
+
+const courseItems = [
+  { title: "Diploma in Finance", tags: "Business", src: "/img5.jpg", link: "/courses/finance" },
+  { title: "AI Augmented Finance", tags: "FinTech", src: "/img6.jpg", link: "/courses/ai-augmented-finance" },
+  { title: "German Language", tags: "Language", src: "/img7.jpg", link: "/courses/german" },
+  { title: "IELTS & PTE", tags: "Study Abroad", src: "/img8.jpg", link: "/courses/ielts-pte" },
+  { title: "3D Digital Marketing", tags: "Creative Marketing", src: "/img9.jpg", link: "/courses/digital-marketing" },
+  { title: "Data Analytics (ML & AI)", tags: "Data Science", src: "/img2.jpg", link: "/courses/data-analytics" },
+  { title: "AI Automation", tags: "Artificial Intelligence", src: "/img10.jpg", link: "/courses/ai-automation" },
+  { title: "Full Stack Development", tags: "Web Development", src: "/img1.jpg", link: "/courses/full-stack" },
+];
 
 export default function Home() {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+
   useGSAP(() => {
     // Existing animations for Hero Link or other parts if needed
     // But since we are likely replacing the hero experience, we can keep the scroll triggers for sections below.
@@ -46,7 +62,7 @@ export default function Home() {
 
   return (
     <>
-      <Preloader />
+      <Preloader onEnrollClick={() => setContactModalOpen(true)} />
 
       {/* Existing content below */}
       <section className="hero" style={{ height: 'auto', minHeight: '100vh', display: 'none' }}>
@@ -84,7 +100,11 @@ export default function Home() {
               </div>
 
               <div className="hero-link">
-                <BtnLink route="/contact" label="contact" />
+                <BtnLink
+                  route="#"
+                  label="contact"
+                  onClick={() => setContactModalOpen(true)}
+                />
               </div>
             </div>
           </div>
@@ -94,10 +114,17 @@ export default function Home() {
       {/* Kept other sections */}
       <WhoWeAre />
       <About />
-      <ProcessCards />
-      <HoverImageLinks items={[{ label: "Google", img: "/img1.jpg " }, { label: "Netflix", img: "/img2.jpg" }, { label: "Zepto", img: "/img3.jpg" }, { label: "Spotify", img: "/img4.jpg" }]}></HoverImageLinks>
+      {/* <ProcessCards /> */}
+      {/* <HoverImageLinks items={[{ label: "Google", img: "/img1.jpg " }, { label: "Netflix", img: "/img2.jpg" }, { label: "Zepto", img: "/img3.jpg" }, { label: "Spotify", img: "/img4.jpg" }]}></HoverImageLinks> */}
+      <CourseDial items={courseItems} />
       <Footer />
 
+      {/* Modals and Overlays */}
+      <ContactModal
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+      />
+      <Toaster />
     </>
   );
 }

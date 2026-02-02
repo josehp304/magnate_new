@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+
 :root {
   --background: #171819;
   /* --background: #e4e7df; */
@@ -10,6 +25,17 @@
   --secondary: #0F1011;
 
   --btn-icon: #ffc22a;
+
+  /* Course Hero Variables */
+  --bg-dark: #15161b;
+  /* Matches Preloader hero bg */
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --accent-primary: #ffbb00;
+  /* Yellow accent */
+  --border-light: #2a2a2a;
+  --border-color: #2a2a2a;
 }
 
 

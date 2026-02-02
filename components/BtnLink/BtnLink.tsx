@@ -7,9 +7,10 @@ interface BtnLinkProps {
     label: string;
     route: string;
     dark?: boolean;
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const BtnLink = ({ label, route, dark = false }: BtnLinkProps) => {
+const BtnLink = ({ label, route, dark = false, onClick }: BtnLinkProps) => {
     const router = useTransitionRouter();
 
     function slideInOut() {
@@ -52,6 +53,10 @@ const BtnLink = ({ label, route, dark = false }: BtnLinkProps) => {
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
+        if (onClick) {
+            onClick(e);
+            return;
+        }
         router.push(route, {
             onTransitionReady: slideInOut,
         });

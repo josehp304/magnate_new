@@ -1,117 +1,70 @@
 "use client";
 import "./Footer.css";
-import { useRef } from "react";
-
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
+import Image from "next/image";
 
 const Footer = () => {
-    const footerRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(
-        () => {
-            if (!footerRef.current) return;
-            const textElements = footerRef.current.querySelectorAll(".footer-text");
-
-            textElements.forEach((element) => {
-                const textContent = element.querySelector(".footer-text-content");
-                gsap.set(textContent, {
-                    y: "100%",
-                });
-            });
-
-            ScrollTrigger.create({
-                trigger: footerRef.current,
-                start: "top 80%",
-                onEnter: () => {
-                    textElements.forEach((element, index) => {
-                        const textContent = element.querySelector(".footer-text-content");
-                        gsap.to(textContent, {
-                            y: "0%",
-                            duration: 0.8,
-                            delay: index * 0.1,
-                            ease: "power3.out",
-                        });
-                    });
-                },
-            });
-        },
-        { scope: footerRef }
-    );
-
     return (
-        <div className="footer" ref={footerRef}>
-            <div className="footer-socials">
-                <div className="fs-col-lg"></div>
-                <div className="fs-col-sm">
-                    <div className="fs-header">
-                        <div className="footer-text">
-                            <div className="footer-text-content">
-                                <p className="sm caps">( Socials )</p>
-                            </div>
+        <footer className="footer-container">
+            <div className="footer-top">
+                <div className="footer-brand">
+                    <div className="footer-logo">
+                        <div className="logo-icon">
+                            <Image src="/logo.svg" alt="Magnate Logo" width={40} height={40} className="w-full h-full object-contain" />
                         </div>
+                        <h1>Magnate</h1>
                     </div>
-                    <div className="footer-social">
-                        <a href="mailto:contact@codegrid.com">
-                            <div className="footer-text">
-                                <div className="footer-text-content">
-                                    <h2>Email</h2>
-                                </div>
-                            </div>
-                        </a>
+                    <p className="footer-desc">
+                        Magnate is India&apos;s rapidly growing e-learning platform with 10M+ users. Magnate offers courses for govt test prep, coding, digital marketing, spoken english, finance & more in 6 regional languages.
+                    </p>
+                    <div className="footer-address">
+                        <p><strong>Magnate Study Abroad</strong></p>
+                        <p>1st Floor, Jairaj Building,</p>
+                        <p>Kochi, India - 682024</p>
                     </div>
-                    <div className="footer-social">
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                            <div className="footer-text">
-                                <div className="footer-text-content">
-                                    <h2>LinkedIn</h2>
-                                </div>
-                            </div>
-                        </a>
+                    {/* <p className="footer-cin">CIN: U74999KL2017PTC050363</p> */}
+                    <div className="footer-contact">
+                        <p>Ph: +91 9207995577</p>
+                        <p>Email: info@magnatestudyabroad.com</p>
                     </div>
-                    <div className="footer-social">
-                        <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer">
-                            <div className="footer-text">
-                                <div className="footer-text-content">
-                                    <h2>Behance</h2>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div className="footer-social">
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                            <div className="footer-text">
-                                <div className="footer-text-content">
-                                    <h2>Instagram</h2>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div className="footer-social">
-                        <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer">
-                            <div className="footer-text">
-                                <div className="footer-text-content">
-                                    <h2>Vimeo</h2>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                </div>
+                <div className="footer-trusted">
+                    <p>Trusted by Over 1 Crore Learners</p>
                 </div>
             </div>
 
-            <div className="footer-copy">
-                <div className="fc-col-sm">
-                    <div className="footer-text">
-                        <div className="footer-text-content">
-                            <p className="sm caps">&copy; 2025 All Rights Reserved</p>
-                        </div>
-                    </div>
+            <div className="footer-divider"></div>
+
+            <div className="footer-bottom">
+                <div className="footer-column">
+                    <h3>Finance & Economics</h3>
+                    <ul>
+                        <li><a href="/courses/finance">Diploma in Finance</a></li>
+                        <li><a href="/courses/ai-augmented-finance">AI Augmented Finance</a></li>
+                    </ul>
+                </div>
+                <div className="footer-column">
+                    <h3>Technology & Data Science</h3>
+                    <ul>
+                        <li><a href="/courses/data-analytics">Data Analytics – ML & AI</a></li>
+                        <li><a href="/courses/ai-automation">AI Automation</a></li>
+                        <li><a href="/courses/full-stack">Full Stack (Software Development)</a></li>
+                    </ul>
+                </div>
+                <div className="footer-column">
+                    <h3>Marketing & Digital Media</h3>
+                    <ul>
+                        <li><a href="/courses/digital-marketing">3D Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div className="footer-column">
+                    <h3>Languages & Communication</h3>
+                    <ul>
+                        <li><a href="/courses/german">German</a></li>
+                        <li><a href="/courses/ielts-pte">IELTS & PTE (English Proficiency)</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

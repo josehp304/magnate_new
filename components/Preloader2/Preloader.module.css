@@ -166,7 +166,7 @@
 .coordinates p span {
     position: relative;
     display: block;
-    transform: translateY(100%);
+    transform: translateY(110%);
     will-change: transform;
 }
 

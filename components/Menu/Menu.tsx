@@ -360,8 +360,6 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                         ref={navLogoRef}
                         onClick={(e) => {
                             e.preventDefault();
-                            if (isExactPath("/")) return;
-
                             router.push("/", {
                                 onTransitionReady: slideInOut,
                             });
@@ -389,8 +387,8 @@ const Menu = ({ onMenuStateChange }: MenuProps) => {
                     <div className="menu-overlay-items" ref={menuItemsRef}>
                         {[
                             { path: "/", label: "index," },
-                            { path: "/courses", label: "courses," },
-                            { path: "/work", label: "work," },
+                            // { path: "/courses", label: "courses," },
+                            { path: "/aboutus", label: "about us," },
                             { path: "/studio", label: "studio," },
                             { path: "/archive", label: "archive," },
                             { path: "/contact", label: "contact" },
