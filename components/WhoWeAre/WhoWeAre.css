@@ -42,6 +42,8 @@
     position: absolute;
     width: 25vw;
     will-change: transform;
+    border-radius: 1.5rem;
+    overflow: hidden;
 }
 
 #whoweare-img-1 {
