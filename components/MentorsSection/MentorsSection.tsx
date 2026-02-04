@@ -103,7 +103,7 @@ const MentorsSection = ({ title, description, mentors }: MentorsSectionProps) =>
                     {mentors.map((_, index) => (
                         <div
                             key={index}
-                            className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === activeIndex ? 'bg-[var(--accent-primary)]' : 'bg-gray-600'
+                            className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === activeIndex ? 'bg-[var(--accent-primary)]' : 'bg-white/20'
                                 }`}
                         />
                     ))}

@@ -177,7 +177,7 @@ const Preloader = () => {
                 </div>
 
                 <div className="preloader-hero-header">
-                    <BlockCopy animateOnScroll={false} triggerStart={isPreloaderComplete} blockColor="#db952dff"><h1>The World Is Your Campus</h1></BlockCopy>
+                    <BlockCopy animateOnScroll={false} triggerStart={isPreloaderComplete} blockColor="#fb01ff"><h1>The World Is Your Campus</h1></BlockCopy>
                 </div>
 
                 <div className="preloader-scroll-down">

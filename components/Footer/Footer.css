@@ -1,8 +1,8 @@
 .footer-container {
     width: 100%;
-    background-color: #111111;
+    background-color: var(--background);
     /* Dark background similar to image */
-    color: #a1a1aa;
+    color: var(--text-secondary);
     padding: 4rem 2rem;
     font-family: "Saans TRIAL", sans-serif;
     /* Matching project font */
@@ -29,7 +29,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: #fff;
+    color: var(--foreground);
 }
 
 .logo-icon {
@@ -63,18 +63,18 @@
 }
 
 .footer-brand strong {
-    color: #d4d4d8;
+    color: var(--foreground);
 }
 
 .footer-trusted {
-    color: #71717a;
+    color: var(--text-muted);
     font-size: 0.85rem;
     text-align: right;
 }
 
 .footer-divider {
     height: 1px;
-    background-color: #27272a;
+    background-color: var(--border-color);
     width: 100%;
     margin: 2rem 0 3rem 0;
 }
@@ -86,7 +86,7 @@
 }
 
 .footer-column h3 {
-    color: #fff;
+    color: var(--foreground);
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -103,13 +103,13 @@
 }
 
 .footer-column a {
-    color: #a1a1aa;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .footer-column a:hover {
-    color: #fff;
+    color: var(--accent-primary);
 }
 
 @media (max-width: 768px) {

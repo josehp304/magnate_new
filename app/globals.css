@@ -16,26 +16,35 @@
 
 
 :root {
-  --background: #171819;
-  /* --background: #e4e7df; */
-  --background-200: #141414;
-  /* --background-200: #666666; */
-  --foreground: #e4e7df;
-  --foreground-200: #666666;
-  --secondary: #0F1011;
+  /* New Color Palette */
+  --primary-1: #5e0c5e;
+  --primary-2: #100624;
+  --secondary-white: #ffffff;
+  --secondary-cyan: #20ecff;
+  --secondary-magenta: #fb01ff;
 
-  --btn-icon: #ffc22a;
+  --background: var(--primary-2);
+  /* --background: #e4e7df; */
+  --background-200: var(--primary-1);
+  /* --background-200: #666666; */
+  --foreground: var(--secondary-white);
+  --foreground-200: #cccccc;
+  --secondary: var(--primary-1);
+
+  --btn-icon: var(--secondary-magenta);
 
   /* Course Hero Variables */
-  --bg-dark: #15161b;
+  --bg-dark: var(--primary-1);
   /* Matches Preloader hero bg */
-  --text-primary: #ffffff;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --accent-primary: #ffbb00;
+  --bg-card: var(--primary-1);
+  --text-primary: var(--secondary-white);
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --accent-primary: var(--secondary-cyan);
   /* Yellow accent */
-  --border-light: #2a2a2a;
-  --border-color: #2a2a2a;
+  --border-light: var(--primary-1);
+  --border-color: #3b073b;
+  /* Darker shade of primary-1 for borders */
 }
 
 

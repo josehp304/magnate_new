@@ -54,8 +54,8 @@ const VisionMission = () => {
                 <div className="vm-block vm-mission">
                     <div className="vm-label vm-anim-up">Mission</div>
                     <div className="vm-content">
-                        {/* Using Gold accent for Mission to highlight it */}
-                        <AnimatedCopy colorInitial="#333" colorAccent="#D4AF37" colorFinal="#e5e5e5">
+                        {/* Using Magenta accent for Mission to highlight it */}
+                        <AnimatedCopy colorInitial="#333" colorAccent="#fb01ff" colorFinal="#e5e5e5">
                             To design and deliver industry-aligned programs that build practical skill, professional confidence, and real-world readiness.
                         </AnimatedCopy>
                     </div>
@@ -66,8 +66,8 @@ const VisionMission = () => {
             </div>
 
             {/* Background Ambient Glows */}
-            <div className="absolute top-[20%] left-[-10%] w-[50vw] h-[50vw] bg-[#D4AF37] rounded-full blur-[200px] opacity-[0.03] pointer-events-none"></div>
-            <div className="absolute bottom-[20%] right-[-10%] w-[50vw] h-[50vw] bg-[#ffffff] rounded-full blur-[200px] opacity-[0.03] pointer-events-none"></div>
+            <div className="absolute top-[20%] left-[-10%] w-[50vw] h-[50vw] bg-[#fb01ff] rounded-full blur-[200px] opacity-[0.03] pointer-events-none"></div>
+            <div className="absolute bottom-[20%] right-[-10%] w-[50vw] h-[50vw] bg-[#20ecff] rounded-full blur-[200px] opacity-[0.03] pointer-events-none"></div>
         </section>
     );
 };
