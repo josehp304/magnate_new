@@ -3,7 +3,7 @@
 .preloader-root {
     --light: var(--foreground);
     --dark: var(--background);
-    font-family: "DM Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
     width: 100%;
     height: 100vh;
     /* changed from 100svh for compatibility */

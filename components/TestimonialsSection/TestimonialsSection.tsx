@@ -34,30 +34,30 @@ const TestimonialsSection = ({
     }, [testimonials.length]);
 
     return (
-        <section className="py-24 bg-[#1a1a1a] relative overflow-hidden">
+        <section className="py-24 bg-[var(--background)] relative overflow-hidden">
             {/* Decorative background elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
-                <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px]" />
-                <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px]" />
+                <div className="absolute top-10 left-10 w-64 h-64 bg-[var(--secondary-cyan)]/20 rounded-full blur-[100px]" />
+                <div className="absolute bottom-10 right-10 w-64 h-64 bg-[var(--secondary-magenta)]/20 rounded-full blur-[100px]" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[var(--foreground)]">
                         {title}
                     </h2>
-                    <p className="text-lg text-white/50 max-w-2xl mx-auto">
+                    <p className="text-lg text-[var(--text-muted)] max-w-2xl mx-auto">
                         {subtitle}
                     </p>
                 </div>
 
                 <div className="relative max-w-4xl mx-auto">
                     {/* Quote Icon Background */}
-                    <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-white/5 pointer-events-none">
+                    <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-[var(--foreground)]/5 pointer-events-none">
                         <Quote size={120} fill="currentColor" />
                     </div>
 
-                    <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 grid grid-cols-1 items-center">
+                    <div className="bg-[var(--bg-card)] border border-[var(--border-color)] backdrop-blur-sm rounded-3xl p-8 md:p-12 grid grid-cols-1 items-center">
                         {testimonials.map((testimonial, index) => (
                             <div
                                 key={testimonial.id}
@@ -66,7 +66,7 @@ const TestimonialsSection = ({
                         `}
                             >
                                 <div className="mb-6 md:mb-8 relative">
-                                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-[#ffc22a] p-1">
+                                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-[var(--accent-primary)] p-1">
                                         <Image
                                             src={testimonial.image}
                                             alt={testimonial.name}
@@ -77,13 +77,13 @@ const TestimonialsSection = ({
                                     </div>
                                 </div>
 
-                                <blockquote className="text-lg md:text-2xl text-center text-white font-medium italic mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto">
+                                <blockquote className="text-lg md:text-2xl text-center text-[var(--foreground)] font-medium italic mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto">
                                     "{testimonial.quote}"
                                 </blockquote>
 
                                 <div className="text-center">
-                                    <h4 className="text-base md:text-lg font-bold text-[#ffc22a]">{testimonial.name}</h4>
-                                    <p className="text-xs md:text-sm text-white/60 mt-1">{testimonial.role}</p>
+                                    <h4 className="text-base md:text-lg font-bold text-[var(--accent-primary)]">{testimonial.name}</h4>
+                                    <p className="text-xs md:text-sm text-[var(--text-muted)] mt-1">{testimonial.role}</p>
                                 </div>
                             </div>
                         ))}
@@ -95,7 +95,7 @@ const TestimonialsSection = ({
                             <button
                                 key={index}
                                 onClick={() => setActiveIndex(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex ? 'bg-[#ffc22a] w-8' : 'bg-white/20 hover:bg-white/40'
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex ? 'bg-[var(--accent-primary)] w-8' : 'bg-[var(--foreground)]/20 hover:bg-[var(--foreground)]/40'
                                     }`}
                                 aria-label={`Go to testimonial ${index + 1}`}
                             />

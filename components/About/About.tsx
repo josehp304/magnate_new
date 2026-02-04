@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const quote =
-        "In prestige beauty, the brands redefining the space are taking a social-first approach - leveraging the power of social and influence to build community, deepen loyalty, drive sales, and create enduring brand equity.";
+        `Most people don’t struggle because they lack education. They struggle because what they learn doesn’t translate into real work. We exist to change that. Our programs are built around practical skills, industry expectations, and hands-on execution. Learners don’t simply complete a course; they move forward with clarity, confidence, and the ability to step into meaningful professional roles.`;
 
     useGSAP(
         () => {
@@ -71,20 +71,7 @@ const About = () => {
                 </h2>
             </div>
 
-            <div className="about-signature">
-                {/* Simulated Signature SVG for "Renee" style */}
-                <svg
-                    className="signature-svg"
-                    viewBox="0 0 200 80"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M40,50 C40,50 50,20 70,30 C90,40 60,60 50,55 C40,50 90,30 110,40 C130,50 120,60 120,60 M130,30 L130,70" />
-                </svg>
-                <div className="about-signature-name">
-                    <p>Ashwin Pradeep</p>
-                    <p>FOUNDER & CEO</p>
-                </div>
-            </div>
+
         </section>
     );
 };

@@ -1,5 +1,5 @@
 .container {
-    font-family: "Saans TRIAL", sans-serif;
+    font-family: "Nunito", sans-serif;
     width: 100%;
     height: 100vh;
     position: relative;
@@ -25,7 +25,7 @@
     position: relative;
     width: 100vw;
     height: 100svh;
-    background-color: #15161b;
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #ffbb00;
+    color: var(--accent-primary);
 }
 
 .videoContainer {
@@ -53,7 +53,7 @@
     transform: translate(-50%, -50%);
     width: 100vw;
     height: 100svh;
-    background-color: #000;
+    background-color: var(--bg-dark);
     clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
     will-change: transform, clip-path;
     overflow: hidden;
@@ -78,7 +78,7 @@
     padding: 1.5em;
     display: flex;
     justify-content: space-between;
-    color: #fff;
+    color: var(--foreground);
     mix-blend-mode: difference;
     z-index: 2;
 }
@@ -109,12 +109,12 @@
     font-weight: 900;
     line-height: 0.85;
     letter-spacing: 0.25rem;
-    color: #fff;
+    color: var(--foreground);
 }
 
 .header p {
     margin-top: 1em;
-    color: #ffbb00;
+    color: var(--accent-primary);
 }
 
 .coordinates {
@@ -127,7 +127,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #ffbb00;
+    color: var(--accent-primary);
 }
 
 .logo {
@@ -138,7 +138,7 @@
     display: flex;
     transform: translateX(-50%);
     will-change: transform;
-    color: #fff;
+    color: var(--foreground);
     mix-blend-mode: difference;
     z-index: 2;
 }
@@ -195,6 +195,8 @@
 
     .header h1 {
         font-size: 7rem;
+        font-weight: 500;
+        /* Reduced from 900 for readability */
         /* letter-spacing: -0.125rem; */
     }
 

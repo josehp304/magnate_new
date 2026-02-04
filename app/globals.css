@@ -51,7 +51,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Nunito", sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -65,8 +65,16 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "nm";
+  font-family: "Nunito", sans-serif;
   cursor: url("/cursor.png"), auto;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {

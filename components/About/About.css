@@ -32,7 +32,7 @@
 }
 
 .about-quote h2 {
-    font-family: "nm", sans-serif;
+    font-family: "Nunito", sans-serif;
     /* Using project's main serif/custom font */
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 400;

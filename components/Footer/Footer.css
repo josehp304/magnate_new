@@ -4,7 +4,7 @@
     /* Dark background similar to image */
     color: var(--text-secondary);
     padding: 4rem 2rem;
-    font-family: "Saans TRIAL", sans-serif;
+    font-family: "Nunito", sans-serif;
     /* Matching project font */
     font-size: 0.9rem;
 }

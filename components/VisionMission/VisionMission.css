@@ -23,7 +23,7 @@
 }
 
 .vm-label {
-    font-family: 'Saans TRIAL', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.25em;
@@ -34,7 +34,7 @@
 }
 
 .vm-content {
-    font-family: 'Saans TRIAL', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 3rem;
     /* Fallback */
     font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -44,7 +44,7 @@
 }
 
 .vm-sub {
-    font-family: 'Saans TRIAL', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 1.25rem;
     color: #a1a1aa;
     max-width: 600px;
